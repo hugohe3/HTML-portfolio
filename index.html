@@ -1,111 +1,910 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="数据分享网站，有同名微信公众号'三流数据'，sanliudata " />
-    <meta name="keywords" content="三流数据,Hugo,Trafalgar" />
-    <meta name="author" content="Hugo" />
-    <title>三流数据</title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" />
-    <!-- https://fonts.google.com/ -->
-    <link href="static/css/bootstrap.min.css" rel="stylesheet" /> <!-- https://getbootstrap.com/ -->
-    <link href="static/fontawesome/css/all.min.css" rel="stylesheet" /> <!-- https://fontawesome.com/ -->
-    <link href="static/css/templatemo-diagoona.css" rel="stylesheet" />
-    <link rel="apple-touch-icon" sizes="180x180" href="static/images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="static/images/favicon-16x16.png">
-    <link rel="manifest" href="static/images/site.webmanifest">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="个人网站，有同名微信公众号'三流数据'，sanliudata">
+    <meta name="keywords" content="三流数据,Hugo,何雨果">
+    <meta name="author" content="Hugo">
+
+    <title>三流数据-何雨果 Hugo He</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Roboto:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- AOS Animation -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #6ac045;
+            --dark-bg: #2a2b30;
+            --light-bg: #fbfbfb;
+            --text-dark: #222;
+            --text-light: #555;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-light);
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Playfair Display', serif;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .bg-primary-custom {
+            background-color: var(--primary-color) !important;
+        }
+
+        .text-primary-custom {
+            color: var(--primary-color) !important;
+        }
+
+        .btn-primary-custom {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #5aa839;
+            border-color: #5aa839;
+            color: white;
+        }
+
+        .navbar-dark {
+            background-color: var(--dark-bg) !important;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, var(--dark-bg) 0%, #3a3b40 100%);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        .section-padding {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .card-custom {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-custom:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-item {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .skill-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .progress-custom {
+            height: 8px;
+            border-radius: 10px;
+            background-color: #e9ecef;
+        }
+
+        .progress-bar-custom {
+            background-color: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--primary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 20px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid white;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(106, 192, 69, 0.9);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .contact-info {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 50%;
+            background: var(--primary-color);
+            color: white;
+            margin: 0 10px;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(106, 192, 69, 0.4);
+            color: white;
+            text-decoration: none;
+        }
+
+        .typing-text {
+            border-right: 2px solid var(--primary-color);
+            animation: blink-caret 1s infinite;
+        }
+
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: var(--primary-color);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .section-padding {
+                padding: 50px 0;
+            }
+        }
+    </style>
 </head>
 
-<body>
-    <div class="tm-container">
-        <div>
-            <div class="tm-row pt-4">
-                <div class="tm-col-left">
-                    <div class="tm-site-header media">
-                        <i class="fas fa-umbrella-beach fa-3x mt-1 tm-logo"></i>
-                        <div class="media-body">
-                            <h1 class="tm-sitename text-uppercase">三流数据</h1>
-                            <p class="tm-slogon">SANLIU DATA</p>
+<body data-bs-spy="scroll" data-bs-target="#navbar" data-bs-offset="70">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">
+                <span class="text-primary-custom">三流数据</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">主页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">简介</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#resume">简历</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#portfolio">作品</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">联系</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h1 class="hero-title" data-aos="fade-up">
+                        Hugo He <span class="text-primary-custom">何雨果</span>
+                    </h1>
+                    <div class="hero-subtitle" data-aos="fade-up" data-aos-delay="200">
+                        我是一个<span id="typing-text" class="typing-text">复合型投融资专业人士</span>
+                    </div>
+                    <div class="mt-4" data-aos="fade-up" data-aos-delay="400">
+                        <a href="#about" class="btn btn-primary-custom btn-lg me-3">了解更多</a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg">联系我</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 text-center" data-aos="fade-left" data-aos-delay="600">
+                    <img src="https://via.placeholder.com/300x300/6ac045/ffffff?text=Hugo+He" alt="Hugo He"
+                        class="img-fluid rounded-circle shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title" data-aos="fade-up">关于我</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8" data-aos="fade-right">
+                    <h3 class="mb-4">复合型投融资专家</h3>
+                    <p class="lead">您好，我是Hugo 何雨果！非常欢迎您访问我的个人网站——三流数据。</p>
+
+                    <p>我是一名复合型投融资专家。我拥有超10年投融资工作经验，持有注册会计师（CPA）、资产评估师（CPV）与咨询工程师（投资）三重核心资格。</p>
+
+                    <h5 class="text-primary-custom mt-4">我的复合特质体现在：</h5>
+                    <div class="row mt-3">
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex">
+                                <i class="fas fa-chart-line text-primary-custom me-3 mt-1"></i>
+                                <div>
+                                    <h6>全方位的项目研判能力</h6>
+                                    <p class="small">运用财务合规、未来价值与产业可行性三大视角进行立体式评估</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex">
+                                <i class="fas fa-database text-primary-custom me-3 mt-1"></i>
+                                <div>
+                                    <h6>数据驱动的投资分析能力</h6>
+                                    <p class="small">精通Excel、Python、SQL、Tableau等工具进行深度量化分析</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex">
+                                <i class="fas fa-network-wired text-primary-custom me-3 mt-1"></i>
+                                <div>
+                                    <h6>跨行业的多元化实战经验</h6>
+                                    <p class="small">历经上市公司、咨询院及商业地产等多重角色</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="d-flex">
+                                <i class="fas fa-robot text-primary-custom me-3 mt-1"></i>
+                                <div>
+                                    <h6>AIGC技术应用</h6>
+                                    <p class="small">持续探索并应用AIGC技术于内容创作和数据分析</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="tm-col-right">
-                    <nav class="navbar navbar-expand-lg" id="tm-main-nav">
-                        <button class="navbar-toggler toggler-example mr-0 ml-auto" type="button" data-toggle="collapse"
-                            data-target="#navbar-nav" aria-controls="navbar-nav" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span><i class="fas fa-bars"></i></span>
-                        </button>
-                        <div class="collapse navbar-collapse tm-nav" id="navbar-nav">
-                            <ul class="navbar-nav text-uppercase">
-                                <li class="nav-item active">
-                                    <a class="nav-link tm-nav-link" href="/">主页 <span
-                                            class="sr-only">(current)</span></a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link tm-nav-link" href="visual">可视化</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link tm-nav-link" href="dataset">数据集</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link tm-nav-link" href="contact">联系我</a>
-                                </li>
+
+                <div class="col-lg-4" data-aos="fade-left">
+                    <div class="card card-custom">
+                        <div class="card-body">
+                            <h5 class="card-title text-primary-custom">个人信息</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-2"><strong>姓名：</strong>Hugo He 何雨果</li>
+                                <li class="mb-2"><strong>年龄：</strong>34岁</li>
+                                <li class="mb-2"><strong>城市：</strong>中国-重庆</li>
+                                <li class="mb-2"><strong>地址：</strong>江北区</li>
+                                <li class="mb-2"><strong>邮箱：</strong>heyug@163.com</li>
+                                <li class="mb-2"><strong>电话：</strong>(+86) 185 8068 ****</li>
+                                <li class="mb-2"><strong>状态：</strong>在职中</li>
                             </ul>
                         </div>
-                    </nav>
+                    </div>
                 </div>
             </div>
 
-            <div class="tm-row">
-                <div class="tm-col-left"></div>
-                <main class="tm-col-right">
-                    <section class="tm-content">
-                        <h2 class="mb-5 tm-content-title">网站介绍</h2>
-                        <p class="mb-5">"嗨，我是 Hugo！感谢您光临我的个人数据分享网站 -
-                            三流数据。我是一位对数据分析和可视化充满热情的数据爱好者。我拥有多年的数据分析经验，曾在不同领域，包括制造业、房地产和基础设施建设等领域从事数据研究工作。我相信数据不仅仅是冷冰冰的数字，它们背后蕴藏着故事和见解。通过这个网站，我希望与您分享我的数据发现，帮助您更深入地理解世界各种各样的问题。"
-                        </p>
-                        <hr class="mb-5">
-                        <p class="mb-5">
-                            "此外，我也是微信公众号“三流数据”（sanliudata）的作者，您可以在那里找到我的最新文章和数据分析分享。不仅如此，您还可以与我互动，提出问题或建议，我们可以一起探讨有关数据的话题。无论您是对数据分析感兴趣的新手还是经验丰富的专业人士，都欢迎您在这里探索数据的奇妙世界。谢谢您的光临，希望您在三流数据找到有趣且有启发性的内容。如果您有任何疑问或建议，请随时联系我。让我们一起探索数据的无限可能性！"
-                        </p>
-                        <a href="visual" class="btn btn-primary">Continue...</a>
-                    </section>
-                </main>
+            <!-- Skills Section -->
+            <div class="row mt-5">
+                <div class="col-12 text-center mb-4">
+                    <h3 data-aos="fade-up">技能专长</h3>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-item">
+                        <i class="fas fa-calculator skill-icon"></i>
+                        <h5>财务与估值专长</h5>
+                        <p>精通会计准则、税务法规与财务建模，擅长运用多种估值方法进行严谨的经济评价</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-item">
+                        <i class="fas fa-chart-bar skill-icon"></i>
+                        <h5>数据分析与可视化</h5>
+                        <p>熟练运用SQL、Pandas进行数据处理，精通Tableau等工具进行数据可视化</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="skill-item">
+                        <i class="fas fa-code skill-icon"></i>
+                        <h5>全栈开发+AIGC</h5>
+                        <p>具备Python和Web开发知识，持续探索AIGC技术应用于内容创作和数据分析</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="skill-item">
+                        <i class="fas fa-puzzle-piece skill-icon"></i>
+                        <h5>跨领域整合能力</h5>
+                        <p>凭借复合背景，能够有效整合多方资源，提供综合性解决方案</p>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="tm-row">
-            <div class="tm-col-left text-center">
-                <ul class="tm-bg-controls-wrapper">
-                    <li class="tm-bg-control active" data-id="0"></li>
-                    <li class="tm-bg-control" data-id="1"></li>
-                    <li class="tm-bg-control" data-id="2"></li>
-                </ul>
+    <!-- Resume Section -->
+    <section id="resume" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title" data-aos="fade-up">我的简历</h2>
+                </div>
             </div>
-            <div class="tm-col-right tm-col-footer">
-                <footer class="tm-site-footer text-right">
-                    <p class="mb-0">Copyright 2023 Diagoona Co.
-                        | Design: <a rel="nofollow" target="_blank" href="https://templatemo.com"
-                            class="tm-text-link">TemplateMo</a></p>
-                </footer>
+
+            <div class="row">
+                <!-- Work Experience -->
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h3 class="mb-4">工作经历</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="text-primary-custom">投融资经理</h5>
+                                <span class="badge bg-primary-custom">2023-至今</span>
+                            </div>
+                            <h6 class="text-muted">电建华东院，重庆</h6>
+                            <p>负责西部区域公司工程咨询报告的经济评价校核工作。参与能源、水利、城建等咨询报告的经济评价章节编写，优化测算模型，提升报告编写效率。</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="text-primary-custom">区域发展副总经理</h5>
+                                <span class="badge bg-primary-custom">2018-2022</span>
+                            </div>
+                            <h6 class="text-muted">红星美凯龙，上海</h6>
+                            <p>独立负责投资项目的可行性及经济测算工作，包括动态现金流分析及风险评估。全程参与2个重点项目的投融资工作，均实现投资回报率超50%。</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="text-primary-custom">高级咨询员</h5>
+                                <span class="badge bg-primary-custom">2017-2018</span>
+                            </div>
+                            <h6 class="text-muted">德勤咨询，重庆</h6>
+                            <p>执行业务/股权估值，提供并购交易和财务报表相关估值服务。创建交易财务模型，使用市场法、收益法等方法进行分析。</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="text-primary-custom">投融资专员</h5>
+                                <span class="badge bg-primary-custom">2015-2017</span>
+                            </div>
+                            <h6 class="text-muted">隆鑫通用，重庆</h6>
+                            <p>负责公司各经营板块业务的行业分析与战略研究，协助推进上市公司并购项目及投后管理，维护投资者关系。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h3 class="mb-4">教育经历</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="text-primary-custom">MBA</h5>
+                                <span class="badge bg-primary-custom">2025-2028</span>
+                            </div>
+                            <h6 class="text-muted">重庆大学，重庆</h6>
+                            <p>拟于2025年9月入学。入学成绩排名前5%。</p>
+                        </div>
+
+                        <div class="timeline-item">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <h5 class="text-primary-custom">国际经济与贸易（本科）</h5>
+                                <span class="badge bg-primary-custom">2008-2012</span>
+                            </div>
+                            <h6 class="text-muted">重庆大学，重庆</h6>
+                            <p>校内成绩排名前25%，通过英语六级。</p>
+                        </div>
+                    </div>
+
+                    <!-- Skills Progress -->
+                    <h3 class="mb-4 mt-5">技能水平</h3>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>财务分析能力</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress progress-custom">
+                            <div class="progress-bar progress-bar-custom" style="width: 90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>估值与建模能力</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress progress-custom">
+                            <div class="progress-bar progress-bar-custom" style="width: 95%"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>数据分析与可视化</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress progress-custom">
+                            <div class="progress-bar progress-bar-custom" style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between">
+                            <span>沟通与谈判能力</span>
+                            <span>95%</span>
+                        </div>
+                        <div class="progress progress-custom">
+                            <div class="progress-bar progress-bar-custom" style="width: 95%"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="tm-bg">
-            <div class="tm-bg-left"></div>
-            <div class="tm-bg-right"></div>
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title" data-aos="fade-up">作品集</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="portfolio-item">
+                        <div class="card card-custom h-100">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-chart-bar text-primary-custom"
+                                    style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                                <h5 class="card-title">全国二手房交易数据查询</h5>
+                                <p class="card-text">提供了互联网上公开的二手房成交价格和成交数量的可视化信息。</p>
+                                <a href="cj" class="btn btn-primary-custom">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="portfolio-item">
+                        <div class="card card-custom h-100">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-building text-primary-custom"
+                                    style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                                <h5 class="card-title">全国二手房挂牌数量查询</h5>
+                                <p class="card-text">提供了从2022年4月至今的全国二手房小区、区域、区县、城市挂牌数量。</p>
+                                <a href="guapai" class="btn btn-primary-custom">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-item">
+                        <div class="card card-custom h-100">
+                            <div class="card-body text-center p-4">
+                                <i class="fab fa-creative-commons-share text-primary-custom"
+                                    style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                                <h5 class="card-title">重庆一手房网签数据查询</h5>
+                                <p class="card-text">将cq315house上的数据进行了可视化展示。</p>
+                                <a href="cq315house" class="btn btn-primary-custom">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="portfolio-item">
+                        <div class="card card-custom h-100">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-database text-primary-custom"
+                                    style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                                <h5 class="card-title">全国二手房挂牌数据集</h5>
+                                <p class="card-text">分月呈现了2022年4月30日至2023年9月20日的全国二手房的挂牌数量。</p>
+                                <a href="https://www.aliyundrive.com/s/8UMHpuBHsfr" target="_blank"
+                                    class="btn btn-primary-custom">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="portfolio-item">
+                        <div class="card card-custom h-100">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-search text-primary-custom"
+                                    style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                                <h5 class="card-title">全国二手房小区信息</h5>
+                                <p class="card-text">收录了35万余条小区数据，包含小区地址位置信息及地理位置编码。</p>
+                                <a href="https://www.aliyundrive.com/s/ztcTWLVxfio" target="_blank"
+                                    class="btn btn-primary-custom">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="portfolio-item">
+                        <div class="card card-custom h-100">
+                            <div class="card-body text-center p-4">
+                                <i class="fas fa-map-marker-alt text-primary-custom"
+                                    style="font-size: 3rem; margin-bottom: 1rem;"></i>
+                                <h5 class="card-title">POI数据集</h5>
+                                <p class="card-text">收录了偶尔收集的一系列POI数据，包括星巴克、喜茶、优衣库等门店数据。</p>
+                                <a href="https://www.aliyundrive.com/s/Akc7kk4nGH2" target="_blank"
+                                    class="btn btn-primary-custom">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
 
-    <script src="static/js/jquery-3.4.1.min.js"></script>
-    <script src="static/js/bootstrap.min.js"></script>
-    <script src="static/js/jquery.backstretch.min.js"></script>
-    <script src="static/js/templatemo-script.js"></script>
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title" data-aos="fade-up">联系我</h2>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-4 mb-4" data-aos="fade-up">
+                    <div class="contact-info">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <h5>邮箱</h5>
+                        <p><a href="mailto:heyug@163.com" class="text-primary-custom">heyug@163.com</a></p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-info">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <h5>地址</h5>
+                        <p>中国-重庆-江北区</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-info">
+                        <i class="fas fa-phone contact-icon"></i>
+                        <h5>电话</h5>
+                        <p>(+86) 185 8068 ****</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-lg-8 mx-auto" data-aos="fade-up">
+                    <div class="card card-custom">
+                        <div class="card-body p-5">
+                            <h4 class="text-center mb-4">发送消息</h4>
+                            <form id="contact-form">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label for="name" class="form-label">姓名</label>
+                                        <input type="text" class="form-control" id="name" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label for="email" class="form-label">邮箱</label>
+                                        <input type="email" class="form-control" id="email" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">主题</label>
+                                    <input type="text" class="form-control" id="subject" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">消息</label>
+                                    <textarea class="form-control" id="message" rows="5" placeholder="欢迎您与我联系..."
+                                        required></textarea>
+                                </div>
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary-custom btn-lg">发送消息</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2025 Hugo He. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links">
+                        <a href="#" title="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>
+                        <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" title="微博"><i class="fab fa-weibo"></i></a>
+                        <a href="#" title="微信"><i class="fab fa-weixin"></i></a>
+                        <a href="dh" title="更多"><i class="fas fa-fire"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS Animation -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false
+        });
+
+        // Typing Animation
+        const typingTexts = [
+            '复合型投融资专业人士',
+            '注册会计师',
+            '资产评估师',
+            '咨询工程师（投资）',
+            '三流数据分析师',
+            '全栈开发爱好者'
+        ];
+
+        let currentTextIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typing-text');
+
+        function typeWriter() {
+            const currentText = typingTexts[currentTextIndex];
+
+            if (isDeleting) {
+                typingElement.textContent = currentText.substring(0, currentCharIndex - 1);
+                currentCharIndex--;
+            } else {
+                typingElement.textContent = currentText.substring(0, currentCharIndex + 1);
+                currentCharIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 100 : 150;
+
+            if (!isDeleting && currentCharIndex === currentText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && currentCharIndex === 0) {
+                isDeleting = false;
+                currentTextIndex = (currentTextIndex + 1) % typingTexts.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeWriter, typeSpeed);
+        }
+
+        // Start typing animation
+        typeWriter();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Simple form validation
+            if (name && email && subject && message) {
+                // Create mailto link
+                const mailtoLink = `mailto:heyug@163.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`姓名: ${name}\n邮箱: ${email}\n\n消息:\n${message}`)}`;
+
+                // Open email client
+                window.location.href = mailtoLink;
+
+                // Show success message
+                alert('邮件客户端已打开，请发送邮件！');
+
+                // Reset form
+                this.reset();
+            } else {
+                alert('请填写所有必填字段！');
+            }
+        });
+
+        // Navbar background change on scroll
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(42, 43, 48, 0.95)';
+            } else {
+                navbar.style.backgroundColor = 'var(--dark-bg)';
+            }
+        });
+
+        // Progress bar animation
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-bar-custom');
+            progressBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.transition = 'width 2s ease-in-out';
+                    bar.style.width = width;
+                }, 500);
+            });
+        }
+
+        // Trigger progress bar animation when resume section is in view
+        const resumeSection = document.getElementById('resume');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateProgressBars();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(resumeSection);
+    </script>
 </body>
 
 </html>
